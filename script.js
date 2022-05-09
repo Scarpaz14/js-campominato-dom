@@ -29,11 +29,16 @@ const listCpuNumberGenerate = [];
     console.log(listCpuNumberGenerate);
 
 // chiedo all utente 84 volte di inserire un numero, sempre compreso tra 1 e 100 e l'utente non puo inserire lo stesso numero piu volte
-const listUserNumber = []
 
 let userNumber;
+let userList=[];
 do{
-     userNumber = Number(prompt("inserisci un numero tra 1 e 100"));  
+     userNumber = Number(prompt("inserisci un numero tra 1 e 100"));
+      if(!userList.includes(userNumber)){
+        userList.push(userNumber);
+      } else{
+          alert("hai gia inserito questo numero")
+      }
 } while ( userNumber < 10 && !listCpuNumberGenerate.includes(userNumber));
 
 
@@ -45,4 +50,5 @@ if( listCpuNumberGenerate.includes(userNumber)){
     console.log("hai vinto")
 }
 
+console.log(userList);
 
