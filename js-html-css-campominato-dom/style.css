@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 70px;
+}
+.header-container{
+    display: flex;
+}
+
+.title{
+    vertical-align: middle;
+}
+.logo{
+    height: 50px;
+    margin-top: 15px;
+    vertical-align: middle;
+}
+
+
+.header-container{
+    width: 1440px;
+    margin: auto;
+}
+.container-left, .container-right{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.container-right{
+    justify-content: flex-end;
+}
+
+#age{
+    padding: 2px 10px;
+    margin: 0 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+#btn-play{
+    padding: 2px 15px;
+    font-weight: bold;
+}
+
+/* MAIN---------------- */
+
+.game-container{
+    height: calc(100vh - 120px);
+    background-color: #7fffd4;
+}
+
+
+footer{
+    height: 50px;
+}
