@@ -15,38 +15,65 @@ function getRndInteger(min, max) {
 
   
 
+//   MAIN PROGRAM-----------------
+// il programma deve chiedere con quale difficolta vogliamo giocare
+let difficulty
+do{
+     difficulty = Number(prompt("inserisci livello di difficolta' tra 0-1-2"))
+}while (isNaN(difficulty) || difficulty < 0 || difficulty > 2);
+
+let totalNumbers;
+ 
+if(difficulty===0){
+    totalNumbers=100;
+}else if(difficulty===1){
+    totalNumbers=80;
+} else{
+    totalNumbers=50;
+}
+
+console.log(totalNumbers);
+
 // generaimo 16 numeri random da 1 a 100
-const listCpuNumberGenerate = [];
+const bombsNumber = 16;
+const numberPossibility = totalNumbers - bombsNumber;
+const listBombs = [];
     // ciclo 10 volte
-    while (listCpuNumberGenerate.length < 16 ) {
+    while (listBombs.length < bombsNumber  ) {
         //genero numeri random fra 1 e 100
-        let number = getRndInteger(1,100)
+        let number = getRndInteger(1,totalNumbers)
         // se il numero generato non e' stato duplicato lo inseriamo nell'array 
-        if(!listCpuNumberGenerate.includes(number)){
-            listCpuNumberGenerate.push(number);
+        if(!listBombs.includes(number)){
+            listBombs.push(number);
         }
     }
-    console.log(listCpuNumberGenerate);
+    console.log(listBombs);
 
 // chiedo all utente 84 volte di inserire un numero, sempre compreso tra 1 e 100 e l'utente non puo inserire lo stesso numero piu volte
-
+let bomb = false
 let userNumber;
 let userList=[];
 do{
+    let userNumber;
+    do{
      userNumber = Number(prompt("inserisci un numero tra 1 e 100"));
-      if(!userList.includes(userNumber)){
-        userList.push(userNumber);
-      } else{
+    } while( isNaN(userNumber) || userNumber < 1 || userNumber >100);
+
+      if(listBombs.includes(userNumber)){
+        bomb=true;
+      } else if(userList.includes(userNumber)){
           alert("hai gia inserito questo numero")
+      } else{
+          userList.push(userNumber);
       }
-} while ( userNumber < 10 && !listCpuNumberGenerate.includes(userNumber));
+} while ( userList.length < 84 && !bomb);
 
 
 // SE la lista contiene il numero scelto dall'utente si perde
-if( listCpuNumberGenerate.includes(userNumber)){
+if( bomb=true){
     console.log("hai perso")
     // ALTRIMENTI SE la lista non contiene il numero scelto dall'utente si vince
-} else if(!listCpuNumberGenerate.includes(userNumber)){
+} else {
     console.log("hai vinto")
 }
 
