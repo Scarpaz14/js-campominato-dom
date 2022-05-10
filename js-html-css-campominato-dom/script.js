@@ -3,7 +3,17 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
 
-  
+// PARTE DI CSS E JAVASCRIPT---------- 
+// selezioniamo dall'html i nostri elementi 
+const formDifficulty = document.querySelector("#difficulty");
+const btnPlay = document.querySelector("#btn-play");
+const container = document.querySelector(".game-container");
+
+
+
+
+
+
 
 //   MAIN PROGRAM-----------------
 // il programma deve chiedere con quale difficolta vogliamo giocare
@@ -11,6 +21,7 @@ let difficulty
 do{
      difficulty = Number(prompt("inserisci livello di difficolta' tra 0-1-2"))
 }while (isNaN(difficulty) || difficulty < 0 || difficulty > 2);
+
 
 let totalNumbers;
  
